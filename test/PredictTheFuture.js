@@ -1,12 +1,12 @@
 const PredictTheFutureChallenge = artifacts.require('PredictTheFutureChallenge')
 const AttackPredictFuture = artifacts.require('AttackPredictFuture')
 
-contract('AttackPredictFuture', () => {
+contract('AttackPredictTheFuture', () => {
   it('solve the challenge', async () => {
-    const challenge = await PredictTheFutureChallenge.new({value: web3.toWei(1, 'ether')})
-    // const challenge = await PredictTheFutureChallenge.at('0xE23CBa5FEa83bB06Bf5dbaCB4A081DF1A0B54AE8')
-    const atk = await AttackPredictFuture.new()
-    // const atk = await AttackPredictFuture.at('0x07430aa71a645597c6fbeea678bfeb80736e8c1c')
+    // const challenge = await PredictTheFutureChallenge.new({value: web3.toWei(1, 'ether')})
+    // const atk = await AttackPredictFuture.new()
+    const challenge = await PredictTheFutureChallenge.at('0xE23CBa5FEa83bB06Bf5dbaCB4A081DF1A0B54AE8')
+    const atk = await AttackPredictFuture.at('0x07430aa71a645597c6fbeea678bfeb80736e8c1c')
     const guess = 0
     await atk.lockInGuess(challenge.address, guess, {value: web3.toWei(1, 'ether')})
     console.log('lock in guess complete, start withdraw')
@@ -19,6 +19,6 @@ contract('AttackPredictFuture', () => {
       await atk.guess(challenge.address, guess)
     }
 
-    assert(await challenge.isComplete() === true)
+    assert(await challenge.isComplete())
   }).timeout(5000000000)
 })

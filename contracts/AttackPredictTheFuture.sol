@@ -3,10 +3,10 @@ pragma solidity ^0.4.21;
 import "./PredictTheFutureChallenge.sol";
 
 
-contract AttackPredictFuture {
+contract AttackPredictTheFuture {
     address owner;
 
-    function AttackPredictFuture () public {
+    function AttackPredictTheFuture () public {
         owner = msg.sender;
     }
 

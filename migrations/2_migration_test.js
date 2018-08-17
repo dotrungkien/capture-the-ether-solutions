@@ -1,5 +1,7 @@
-const AttackPredictFuture = artifacts.require('AttackPredictFuture')
+const AttackPredictTheFuture = artifacts.require('AttackPredictTheFuture')
+const AttackPredictTheBlockHash = artifacts.require('AttackPredictTheBlockHash')
 
-module.exports = async function (deployer) {
-  await deployer.deploy(AttackPredictFuture)
+module.exports = function (deployer) {
+  deployer.deploy(AttackPredictTheFuture)
+  deployer.deploy(AttackPredictTheBlockHash)
 }
