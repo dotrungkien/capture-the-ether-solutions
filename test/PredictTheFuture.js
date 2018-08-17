@@ -19,6 +19,6 @@ contract('AttackPredictTheFuture', () => {
       await atk.guess(challenge.address, guess)
     }
 
-    assert(await challenge.isComplete())
+    assert(await challenge.isComplete() === true)
   }).timeout(5000000000)
 })
